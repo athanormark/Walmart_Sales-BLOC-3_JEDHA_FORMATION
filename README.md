@@ -19,17 +19,15 @@ Le service marketing de **Walmart** souhaite un modele de Machine Learning capab
 
 | Modele | R2 Train | R2 Test | MAE Test | RMSE Test |
 |--------|----------|---------|----------|-----------|
-| Regression Lineaire | 0.977 | 0.891 | ~100k $ | ~140k $ |
-| Ridge (alpha=0.1) | 0.977 | 0.895 | ~98k $ | ~137k $ |
-| Lasso (alpha optimise) | ~0.977 | ~0.895 | ~98k $ | ~137k $ |
-
-> *Les valeurs exactes de MAE/RMSE sont affichees dans le notebook apres execution. Les valeurs ci-dessus sont indicatives.*
+| Regression Lineaire | 0.977 | 0.891 | $153,208 | $194,682 |
+| Ridge optimise (alpha=0.01) | 0.977 | 0.892 | $151,995 | $193,651 |
+| **Lasso optimise (alpha=500)** | **0.977** | **0.897** | **$151,358** | **$188,738** |
 
 **Constats** :
 - Le modele explique **~90% de la variance** des ventes sur le jeu de test
-- L'ecart train/test (0.977 vs 0.891) indique un **leger overfitting**, corrige partiellement par Ridge
-- Le best alpha Ridge tres faible (0.1) montre que la regularisation n'etait pas critiquement necessaire
-- Lasso confirme cette tendance : peu de features sont mises a zero
+- L'ecart train/test (0.977 vs 0.891) indique un **leger overfitting**, corrige partiellement par la regularisation
+- Le best alpha Ridge tres faible (0.01) confirme que le modele lineaire n'etait pas tres overfit
+- **Lasso (alpha=500)** donne le meilleur R2 test (0.897) et elimine 1 feature sur 27
 
 ### Saisonnalite des ventes
 
@@ -69,10 +67,10 @@ Le **Store** (identite du magasin) est de loin le facteur le plus predictif — 
 
 ### 3. Modelisation
 
-1. **Regression Lineaire** (baseline) : minimisation OLS. R2 test = 0.891.
+1. **Regression Lineaire** (baseline) : minimisation OLS. R2 test = 0.891, MAE = $153k.
 2. **Ridge (alpha=100)** : test volontaire avec alpha eleve → R2 s'effondre (0.072). Demontre l'impact d'une regularisation trop forte.
-3. **Ridge optimise (GridSearchCV, cv=5)** : best alpha = 0.1. R2 test = 0.895. Leger gain.
-4. **Lasso (GridSearchCV, cv=5)** : selection de features automatique (L1). Performances similaires a Ridge.
+3. **Ridge optimise (GridSearchCV, cv=5)** : best alpha = 0.01. R2 test = 0.892.
+4. **Lasso optimise (GridSearchCV, cv=5)** : best alpha = 500. R2 test = 0.897. Meilleur modele, elimine 1 feature sur 27.
 
 ### 4. Interpretation des coefficients
 
