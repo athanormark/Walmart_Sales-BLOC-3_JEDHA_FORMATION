@@ -1,0 +1,13 @@
+# Environnements et caches
+__pycache__/
+.ipynb_checkpoints/
+*.pyc
+.env
+.DS_Store
+
+# Donnees brutes (volumineuses)
+data/
+
+# IDE
+.vscode/
+.idea/
