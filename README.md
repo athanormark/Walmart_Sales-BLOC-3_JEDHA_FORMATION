@@ -1,9 +1,12 @@
 # Walmart - Prediction des ventes hebdomadaires
 
-[![Python](https://img.shields.io/badge/Python-3.8%2B-3776AB?style=flat&logo=python&logoColor=white)](https://www.python.org/)
-[![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-orange?style=flat&logo=jupyter)](https://jupyter.org/)
-[![Pandas](https://img.shields.io/badge/Pandas-Data_Analysis-150458?style=flat&logo=pandas)](https://pandas.pydata.org/)
-[![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-ML-f7931e?style=flat&logo=scikit-learn)](https://scikit-learn.org/)
+[![Python](https://img.shields.io/badge/Python-3.8+-3776AB?style=flat&logo=python&logoColor=fff)](#)
+[![Jupyter](https://img.shields.io/badge/Jupyter-F37626?style=flat&logo=jupyter&logoColor=fff)](#)
+[![Pandas](https://img.shields.io/badge/Pandas-150458?style=flat&logo=pandas&logoColor=fff)](#)
+[![scikit--learn](https://img.shields.io/badge/scikit--learn-F7931E?style=flat&logo=scikit-learn&logoColor=fff)](#)
+[![JEDHA](https://img.shields.io/badge/JEDHA-blueviolet?style=flat)](#)
+
+---
 
 ## About
 
@@ -12,6 +15,8 @@ Le service marketing de **Walmart** souhaite un modele de Machine Learning capab
 L'objectif est de predire `Weekly_Sales` avec la meilleure precision possible pour orienter les futures campagnes marketing.
 
 Projet realise dans le cadre du **BLOC 3** de la formation Data Analyst & IA (JEDHA Bootcamp).
+
+---
 
 ## Dataset
 
@@ -31,6 +36,8 @@ Projet realise dans le cadre du **BLOC 3** de la formation Data Analyst & IA (JE
 | CPI | Indice des prix a la consommation |
 | Unemployment | Taux de chomage dans la region |
 
+---
+
 ## Installation
 
 ```bash
@@ -44,6 +51,8 @@ Placer `Walmart_Store_sales.csv` dans `data/raw/`, puis :
 ```bash
 jupyter notebook notebooks/01_eda_and_baseline.ipynb
 ```
+
+---
 
 ## Pipeline
 
@@ -69,6 +78,8 @@ jupyter notebook notebooks/01_eda_and_baseline.ipynb
 2. **Ridge (alpha=100)** : test volontaire avec alpha eleve pour montrer l'impact d'une regularisation trop forte
 3. **Ridge optimise (GridSearchCV, cv=5)** : recherche du meilleur alpha
 4. **Lasso optimise (GridSearchCV, cv=5)** : regularisation L1 avec selection de features
+
+---
 
 ## Resultats
 
@@ -97,6 +108,21 @@ jupyter notebook notebooks/01_eda_and_baseline.ipynb
 |:-:|:-:|
 | ![Distribution](assets/images/distribution_target.png) | ![Real vs Predicted](assets/images/real_vs_predicted.png) |
 
+---
+
+## Conclusion
+
+Le projet repond a la problematique Walmart : **predire les ventes hebdomadaires pour orienter les campagnes marketing**.
+
+- Le modele **Lasso (alpha=500)** obtient le meilleur R2 test (0.897) et le RMSE le plus bas (188 738 $), tout en eliminant 1 feature sur 27.
+- Le **Store** (identite du magasin) est de loin le facteur le plus predictif : chaque magasin a un niveau de ventes propre.
+- La regularisation corrige partiellement l'overfitting observe sur la regression lineaire simple (R2 train=0.977 vs test=0.891).
+- Le feature engineering sur les dates (Year, Month, DayOfWeek) ameliore les performances en captant la saisonnalite.
+
+**Limites** : le dataset est tres petit (131 lignes apres nettoyage), ce qui limite la generalisation. Un dataset plus large et un modele non-lineaire (Random Forest, XGBoost) pourraient ameliorer les performances.
+
+---
+
 ## Structure du projet
 
 ```
@@ -111,6 +137,8 @@ walmart-sales-prediction/
 ├── requirements.txt
 └── README.md
 ```
+
+---
 
 ## Auteur
 
