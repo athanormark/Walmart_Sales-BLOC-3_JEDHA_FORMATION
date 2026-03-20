@@ -11,3 +11,6 @@ data/
 # IDE
 .vscode/
 .idea/
+
+# Claude Code
+.claude/
