@@ -1,5 +1,7 @@
 # Walmart - Prédiction des ventes hebdomadaires
 
+> Régression linéaire, Ridge et Lasso pour prédire les ventes hebdomadaires, projet de formation JEDHA.
+
 [![Python](https://img.shields.io/badge/Python-3.8+-3776AB?style=flat&logo=python&logoColor=fff)](#)
 [![Jupyter](https://img.shields.io/badge/Jupyter-F37626?style=flat&logo=jupyter&logoColor=fff)](#)
 [![NumPy](https://img.shields.io/badge/NumPy-013243?style=flat&logo=numpy&logoColor=fff)](#)
@@ -9,9 +11,7 @@
 [![Seaborn](https://img.shields.io/badge/Seaborn-444876?style=flat)](#)
 [![JEDHA](https://img.shields.io/badge/JEDHA-blueviolet?style=flat)](#)
 
----
-
-## About
+## Contexte et rôle
 
 Le service marketing de **Walmart** souhaite un modèle de Machine Learning capable d'estimer les ventes hebdomadaires de ses magasins avec la meilleure précision possible. L'enjeu est double :
 
@@ -21,10 +21,6 @@ Le service marketing de **Walmart** souhaite un modèle de Machine Learning capa
 La variable cible est `Weekly_Sales` (ventes hebdomadaires en dollars). Le modèle doit fournir des prédictions fiables et des coefficients interprétables pour orienter les décisions stratégiques.
 
 Projet réalisé dans le cadre du **BLOC 3 : Machine Learning** de la formation Data Fullstack (JEDHA Bootcamp).
-
----
-
-## Contexte et rôle
 
 Projet de formation du bootcamp JEDHA (Data Fullstack, BLOC 3, Machine Learning). L'énoncé, le contexte métier et les données viennent de JEDHA ; Walmart est un cas d'étude pédagogique, sans lien avec l'entreprise ni mission réelle.
 
@@ -52,23 +48,7 @@ Ce dépôt rassemble mon travail sur ce cas : régression linéaire, Ridge et La
 
 ---
 
-## Installation
-
-```bash
-git clone https://github.com/athanormark/Walmart_Sales-BLOC-3_JEDHA_FORMATION.git
-cd Walmart_Sales-BLOC-3_JEDHA_FORMATION
-pip install -r requirements.txt
-```
-
-Placer `Walmart_Store_sales.csv` dans `data/raw/`, puis :
-
-```bash
-jupyter notebook notebook/01_eda_and_baseline.ipynb
-```
-
----
-
-## Pipeline
+## Fonctionnalités
 
 ### 1. EDA et nettoyage
 
@@ -92,6 +72,14 @@ jupyter notebook notebook/01_eda_and_baseline.ipynb
 2. **Ridge (alpha=100)** : test avec alpha élevé pour illustrer l'impact d'une pénalisation excessive
 3. **Ridge optimisé** (`GridSearchCV`, cv=5) : recherche du meilleur alpha dans [0.01, 0.1, 1, 10, 50, 100, 500, 1000]
 4. **Lasso optimisé** (`GridSearchCV`, cv=5) : régularisation L1 avec sélection de features automatique
+
+---
+
+## Stack
+
+- Langage : Python 3.8+, Jupyter
+- Données et visualisation : pandas, NumPy, Matplotlib, seaborn
+- Modélisation : scikit-learn
 
 ---
 
@@ -120,6 +108,22 @@ L'analyse des coefficients révèle la hiérarchie suivante :
 * **Month / DayOfWeek** : la saisonnalité joue un rôle significatif. Les ventes augmentent nettement en novembre-décembre (fêtes de fin d'année et Black Friday).
 * **Holiday_Flag** : les semaines fériées montrent un impact positif modéré sur les ventes.
 * **Temperature, Fuel_Price, CPI, Unemployment** : ces indicateurs économiques montrent une corrélation linéaire faible avec les ventes. Leur pouvoir prédictif est marginal dans ce modèle.
+
+---
+
+## Lancer le projet
+
+```bash
+git clone https://github.com/athanormark/Walmart_Sales-BLOC-3_JEDHA_FORMATION.git
+cd Walmart_Sales-BLOC-3_JEDHA_FORMATION
+pip install -r requirements.txt
+```
+
+Placer `Walmart_Store_sales.csv` dans `data/raw/`, puis :
+
+```bash
+jupyter notebook notebook/01_eda_and_baseline.ipynb
+```
 
 ---
 
@@ -165,5 +169,4 @@ walmart-sales-prediction/
 
 ## Auteur
 
-Athanor SAVOUILLAN · [GitHub](https://github.com/athanormark)
-
+Athanor Savouillan · [Réalisations](https://atelia-conseil.com/realisations/) · [GitHub](https://github.com/athanormark)
