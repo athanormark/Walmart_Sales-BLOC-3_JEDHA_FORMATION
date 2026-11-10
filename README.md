@@ -20,7 +20,15 @@ Le service marketing de **Walmart** souhaite un modèle de Machine Learning capa
 
 La variable cible est `Weekly_Sales` (ventes hebdomadaires en dollars). Le modèle doit fournir des prédictions fiables et des coefficients interprétables pour orienter les décisions stratégiques.
 
-Projet réalisé dans le cadre du **BLOC 3 -- Machine Learning** de la formation Data Fullstack (JEDHA Bootcamp).
+Projet réalisé dans le cadre du **BLOC 3 : Machine Learning** de la formation Data Fullstack (JEDHA Bootcamp).
+
+---
+
+## Contexte et rôle
+
+Projet de formation du bootcamp JEDHA (Data Fullstack, BLOC 3, Machine Learning). L'énoncé, le contexte métier et les données viennent de JEDHA ; Walmart est un cas d'étude pédagogique, sans lien avec l'entreprise ni mission réelle.
+
+Ce dépôt rassemble mon travail sur ce cas : régression linéaire, Ridge et Lasso. Les résultats annoncés plus bas sont ceux du notebook du dépôt.
 
 ---
 
